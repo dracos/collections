@@ -6,9 +6,11 @@
       link_to(link["label"],link["url"], class: "govuk-link")
     end
   %>
-  <p class="govuk-body">
-    <%= render_govspeak(guidance["intro"]) %>
-  <p>
+  <% if guidance["intro"].present? %>
+    <p class="govuk-body">
+      <%= render_govspeak(guidance["intro"]) %>
+    <p>
+   <% end %>
   <p class="govuk-body">
     <%= "#{guidance["text"]} #{guidance_links.to_sentence(last_word_connector: " and ")}".html_safe %>
   </p>
